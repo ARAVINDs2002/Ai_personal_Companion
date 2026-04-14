@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Companion</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Setup Screen -->
+    <div id="setup-container" class="screen-container">
+        <div class="setup-card">
+            <h2>Welcome</h2>
+            <p class="subtitle">Let's personalize your experience.</p>
+            
+            <div class="input-group">
+                <label for="setup-user-name">Your Name</label>
+                <input type="text" id="setup-user-name" placeholder="e.g. Alex" />
+            </div>
+            
+            <div class="input-group">
+                <label for="setup-user-gender">Your Gender</label>
+                <input type="text" id="setup-user-gender" placeholder="e.g. Male, Female, Non-binary" />
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="input-group">
+                <label for="setup-ai-name">Companion's Name</label>
+                <input type="text" id="setup-ai-name" placeholder="e.g. Maya" value="Maya" />
+            </div>
+            
+            <div class="input-group">
+                <label for="setup-ai-gender">Companion's Gender</label>
+                <input type="text" id="setup-ai-gender" placeholder="e.g. Female" value="Female" />
+            </div>
+
+            <button id="setup-btn">Start Chatting</button>
+            <div id="setup-error" class="error-msg"></div>
+        </div>
+    </div>
+
+    <!-- Chat Screen -->
+    <div id="chat-container" class="screen-container hidden">
+        
+        <!-- Sidebar -->
+        <div class="sidebar" id="app-sidebar">
+            <div class="sidebar-header">
+                <h2>Chats</h2>
+            </div>
+            <div class="contact-list">
+                <!-- Dummy Contacts -->
+                <div class="contact dummy">
+                    <img src="../avatar/w1.jpg" alt="Sarah" class="contact-avatar" style="object-fit: cover;">
+                    <div class="contact-info">
+                        <h4>Sarah</h4>
+                        <p>Let's catch up later! 😊</p>
+                    </div>
+                </div>
+                <div class="contact dummy">
+                    <img src="../avatar/m1.jpg" alt="Alex" class="contact-avatar" style="object-fit: cover;">
+                    <div class="contact-info">
+                        <h4>Alex</h4>
+                        <p>Got the files, thanks.</p>
+                    </div>
+                </div>
+                <div class="contact dummy">
+                    <img src="../avatar/w2.jpg" alt="Emma" class="contact-avatar" style="object-fit: cover;">
+                    <div class="contact-info">
+                        <h4>Emma</h4>
+                        <p>Are we still on for tmrw?</p>
+                    </div>
+                </div>
+                <div class="contact dummy">
+                    <img src="../avatar/m2.jpg" alt="James" class="contact-avatar" style="object-fit: cover;">
+                    <div class="contact-info">
+                        <h4>James</h4>
+                        <p>See you at 5.</p>
+                    </div>
+                </div>
+                <div class="contact dummy">
+                    <img src="../avatar/w3.jpg" alt="Chloe" class="contact-avatar" style="object-fit: cover;">
+                    <div class="contact-info">
+                        <h4>Chloe</h4>
+                        <p>Loved that movie!</p>
+                    </div>
+                </div>
+                <div class="contact dummy">
+                    <img src="../avatar/m3.jpg" alt="Lucas" class="contact-avatar" style="object-fit: cover;">
+                    <div class="contact-info">
+                        <h4>Lucas</h4>
+                        <p>Haha exactly!</p>
+                    </div>
+                </div>
+                <div class="contact dummy">
+                    <img src="../avatar/w4.jpg" alt="Mia" class="contact-avatar" style="object-fit: cover;">
+                    <div class="contact-info">
+                        <h4>Mia</h4>
+                        <p>Sent a voice message 🎤</p>
+                    </div>
+                </div>
+                <div class="contact dummy">
+                    <img src="../avatar/m4.jpg" alt="Ethan" class="contact-avatar" style="object-fit: cover;">
+                    <div class="contact-info">
+                        <h4>Ethan</h4>
+                        <p>I'll call you back.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="chat-wrapper" id="main-chat-area">
+            <div class="chat-header">
+                <div class="header-avatar" id="header-avatar-initial">M</div>
+                <div class="header-info" style="flex: 1;">
+                    <h3 id="chat-ai-name-display">Maya</h3>
+                    <span class="status">● Online</span>
+                </div>
+                <button onclick="resetChat()" id="reset-btn">Reset Chat</button>
+            </div>
+            
+            <div id="chat-area" class="chat-area">
+                <!-- Messages added here dynamically -->
+            </div>
+
+            <div class="input-area">
+                <input type="text" id="chat-input" placeholder="Message..." autocomplete="off" />
+                <button id="send-btn" disabled>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
