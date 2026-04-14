@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 :: ============================================================
-:: AI Companion - Ultimate One-Click Launcher (Path Fix)
+:: AI Companion - Ultimate One-Click Launcher (Final)
 :: ============================================================
 
 set "PROJECT_ROOT=%~dp0"
@@ -108,15 +108,14 @@ echo [+] Backend up!
 echo.
 echo  [5/6] Starting Frontend Server...
 echo.
-:: Start server from PROJECT_ROOT so it can access both /frontend and /avatar folders
 start "AI Companion Frontend" /min cmd /k "cd /d "%PROJECT_ROOT%" && python -m http.server 3000"
 
 echo.
 echo  [6/6] Launching App...
 echo.
 timeout /t 2 >nul
-:: Open the specific path inside the root server
-start "" "http://localhost:3000/frontend/index.html"
+:: Open the root URL; the new index.html will redirect to the correct folder automatically
+start "" "http://localhost:3000"
 
 echo.
 echo ==========================================
