@@ -40,3 +40,6 @@ Thumbs.db
 memory.json.bak
 logs/
 *.log
+
+# Persistent data
+memory.json
